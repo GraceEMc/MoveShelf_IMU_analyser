@@ -28,6 +28,7 @@ from OS_investigateJoints import investigateJoints
 from OS_plotJointangles import plotJointangles
 from OS_plotQuaternions import plotQuats
 
+
 class Application:
     
     
@@ -47,23 +48,7 @@ class Application:
         #   -Cuts pre-calibration data from dataset.
         #   -Creates .txt files from .csv files in useable format.
         
-        # upload to which project?
-        if UploadFiles == True:
-            userProjects = api.getUserProjects()
         
-            print('upload to which project?:')
-            
-            count = 0
-            for x in userProjects:
-                print('[{}] {}'.format(count,userProjects[count]))
-                count += 1
-                   
-            project_no = int(input('enter project number:\n'))
-            
-            print('\ndid you record a video with Vicon Blue Trident?:\n[0] Yes\n[1] No')
-            uploadvideo = int(input('enter number:\n'))
-            
-            print('\nthanks\n')
             
             
         #---find data and setup
@@ -71,6 +56,7 @@ class Application:
             if TrialName in x:
                 self._trial_dir_path = os.path.dirname(os.path.realpath('__file__'))+'\\IMUData\\'+x+'\\' # search for directory with 'trial' in its name
                 trial_dir_path = self._trial_dir_path
+                import pdb; pdb.set_trace()
         
         
         #---get .csv files

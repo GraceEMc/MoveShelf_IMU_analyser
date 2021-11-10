@@ -48,15 +48,16 @@ Metadata = TypedDict('Metadata', {
 
 # check api_key 
 class MoveshelfApi(object):
-    def __init__(self, api_key_file='mvshlf-api-key.json', api_url = 'https://api.moveshelf.com/graphql'):
-        self._crc32c = mkPredefinedCrcFun('crc32c')
-        self.api_url = api_url 
-        if path.isfile(api_key_file) == False:
-            raise ValueError("No valid API key. Please check instructions on https://github.com/moveshelf/python-api-example")
+    # def __init__(self):
+    # , api_key_file='mvshlf-api-key.json', api_url = 'https://api.moveshelf.com/graphql'):
+    #     self._crc32c = mkPredefinedCrcFun('crc32c')
+    #     self.api_url = api_url 
+    #     if path.isfile(api_key_file) == False:
+    #         raise ValueError("No valid API key. Please check instructions on https://github.com/moveshelf/python-api-example")
 
-        with open(api_key_file, 'r') as key_file:
-            data = json.load(key_file)
-            self._auth_token = BearerTokenAuth(data['secretKey'])
+    #     with open(api_key_file, 'r') as key_file:
+    #         data = json.load(key_file)
+    #         self._auth_token = BearerTokenAuth(data['secretKey'])
             
 # get project datasets
     def getProjectDatasets(self, project_id):

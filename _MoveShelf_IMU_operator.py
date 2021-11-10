@@ -9,7 +9,7 @@ from OpenSense_Main import Application
 app = Application()
 
 
-TrialName = '20201201_13'                                  # Should include date and trial number.
+TrialName = 'On Table-2calibrate-1'                                  # Should include date and trial number.
 modelFileName = 'OpenSim_model.osim'             # The path to input model.
 visualizeCalibration = False                      # Visualize calibrated model?
 visualizeTracking = False                        # Visualize motion?
