@@ -9,6 +9,7 @@ Created on Wed Oct  7 18:42:01 2020
 import os
 import glob
 import time
+os.add_dll_directory("C:/opensim-core-source/bin")
 import opensim as osim # necessary to read setup file
 from numpy import pi # necessary to read setup file
 from moviepy.video.io.ffmpeg_tools import ffmpeg_extract_subclip

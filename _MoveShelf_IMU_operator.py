@@ -4,7 +4,8 @@ Created on Wed Nov  4 11:51:24 2020
 
 @author: Joris Ravenhorst
 """
-
+import os
+os.add_dll_directory("C:/opensim-core-source/bin")
 from OpenSense_Main import Application
 app = Application()
 
