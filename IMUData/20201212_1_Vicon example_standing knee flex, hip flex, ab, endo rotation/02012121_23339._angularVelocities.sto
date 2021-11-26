@@ -1,0 +1,6 @@
+DataRate=225.000000
+DataType=Vec3
+version=3
+OpenSimVersion=4.4-2021-11-18-25dbff823
+endheader
+time	tibia_r_imu	femur_r_imu

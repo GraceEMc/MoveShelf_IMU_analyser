@@ -57,7 +57,7 @@ class Application:
             if TrialName in x:
                 self._trial_dir_path = os.path.dirname(os.path.realpath('__file__'))+'\\IMUData\\'+x+'\\' # search for directory with 'trial' in its name
                 trial_dir_path = self._trial_dir_path
-                import pdb; pdb.set_trace()
+                #import pdb; pdb.set_trace()
         
         
         #---get .csv files
@@ -78,8 +78,9 @@ class Application:
             
         #---retrieve trial settings from setup file
         ldic = locals()
-        exec(open(trial_dir_path + 'setup.txt','r').read(),globals(),ldic)
-        
+        test=exec(open(trial_dir_path + 'setup.txt','r').read(),ldic,ldic)
+
+        # from (trial_dir_path + 'setup.py') import *
         device = ldic['device']
         freq = ldic['freq']
         t_calib = ldic['t_calib']  
@@ -100,14 +101,16 @@ class Application:
         IMUmappings(sensor,trial_dir_path,files,IMUs)
         
         
-        #---convert output data .csv files to .txt in useable format 
+        #---convert output data .csv files to .txt in useable format consistent with xsens data reader?
         #   and perform interpolation and heading reset
+        #could try without heading reset and calibration step?
         t0 = [0]*len(IMUs)
         
         count = 0
         for csvfilename in files:
             t0[count] = findFirst_t(sensor, trial_dir_path, csvfilename, device)
             count += 1
+        #think gets time vectory only
         
         count = 0
         for x in files:
@@ -143,7 +146,7 @@ class Application:
         
         
         #------------------------------------------------------------------------------
-        # %% PlotJointAngles in console
+        # #%% PlotJointAngles in console
         #   function: plotJointangles(trial_dir_path, trialID, angles2plot)
         #   lumbar:
         #       'lumbar_extension', 'lumbar_bending', 'lumbar_rotation' 
